@@ -1,0 +1,1 @@
+This is a task provided by The Odin Project which involves the creation of a version of the board game, Battleship. The focus of this project is development via Test Driven Deployment (TDD) and expanding skills related to TDD. Testing will primarily be completed utilizing JEST.
