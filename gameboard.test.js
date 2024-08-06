@@ -65,3 +65,25 @@ test("applying horizontal ship to group of cells", () => {
 test("applying horizontal ship to group of cells", () => {
     expect(board1.board[50].occupied).toBeTruthy();
 })
+
+test("hitting a cell and returning true", () => {
+    expect(board1.receiveHit([1,0])).toBeTruthy();
+})
+
+test("verifying the ship is registering the hit",() => {
+    let ship = board1.board[10].occupied;
+    expect(ship.hits).toEqual(1);
+})
+
+test("hitting a cell and returning true", () => {
+    expect(board1.receiveHit([2,0])).toBeTruthy();
+})
+
+test("verifying the ship is registering the hit",() => {
+    let ship = board1.board[20].occupied;
+    expect(ship.hits).toEqual(2);
+})
+
+test("rejecting a cell that has already been hit", () => {
+    expect(board1.receiveHit([1,0])).toMatch("Target cell already hit");
+})

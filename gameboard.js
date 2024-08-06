@@ -13,21 +13,24 @@ class Gameboard {
         {
             for (let j = 0; j < this.size; j++)
             {
-                cellArray.push({ "coords":[i,j], "occupied": false });
+                cellArray.push({ coords:[i,j], occupied: false, hit: false });
             }
         }
         return cellArray;
     }
+
     placePiece(ship, pos)
     {
         if (this.board[Number(pos[0].toString() + pos[1].toString())].occupied) return false;
         else
         {
             let occupiedArray = [...this.#addXorY(ship, pos)];
-            occupiedArray.forEach(coord => this.board[Number(coord[0].toString() + coord[1].toString())].occupied = true);
+            ship.occupies = occupiedArray;
+            occupiedArray.forEach(coord => this.board[Number(coord[0].toString() + coord[1].toString())].occupied = ship);
             return true;
         }
     }
+
     #addXorY(ship, pos)
     {
         let coord = pos;
@@ -47,6 +50,22 @@ class Gameboard {
             }
         }
         return [...shipArray];
+    }
+
+    receiveHit(pos)
+    {
+        let cell = this.board[Number(pos[0].toString() + pos[1].toString())]
+        let ship = cell.occupied;
+        if (cell.hit === true) return "Target cell already hit";
+        else 
+        {
+            cell.hit = true;
+            if (ship)
+            {
+                ship.hits++
+            }
+            return "Cell has been hit!";
+        }
     }
 }
 
