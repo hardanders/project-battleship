@@ -1,0 +1,19 @@
+{
+  "name": "project-battleship",
+  "version": "1.0.0",
+  "description": "This is a task provided by The Odin Project which involves the creation of a version of the board game, Battleship. The focus of this project is development via Test Driven Deployment (TDD) and expanding skills related to TDD. Testing will primarily be completed utilizing JEST.",
+  "main": "ship.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "babel": "^6.23.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}
