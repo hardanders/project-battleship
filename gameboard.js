@@ -4,6 +4,8 @@ class Gameboard {
         this.size = size;
         this.cellCount = this.size * this.size;
         this.board = this.#buildBoard();
+        this.missed = [];
+        this.placed = [];
     }
 
     #buildBoard()
@@ -27,6 +29,7 @@ class Gameboard {
             let occupiedArray = [...this.#addXorY(ship, pos)];
             ship.occupies = occupiedArray;
             occupiedArray.forEach(coord => this.board[Number(coord[0].toString() + coord[1].toString())].occupied = ship);
+            this.placed.push(ship);
             return true;
         }
     }
@@ -34,7 +37,7 @@ class Gameboard {
     #addXorY(ship, pos)
     {
         let coord = pos;
-        let shipArray = []
+        let shipArray = [];
         if (ship.vertical === true)
         {
             for (let i = 0; i < ship.length; i++)
@@ -62,10 +65,25 @@ class Gameboard {
             cell.hit = true;
             if (ship)
             {
-                ship.hits++
+                ship.hit();
+                return ship.isSunk() ? "Ship has sunk!" : "Target has been hit!";
             }
-            return "Cell has been hit!";
+            else 
+            {
+                this.missed.push(pos);
+                return "Target missed!"
+            }
         }
+    }
+
+    getRemaining()
+    {
+        let count = 0;
+        for (let i = 0; i < this.placed.length; i++)
+        {
+            if (!(this.placed[i].sunk)) count++;
+        }
+        return count;
     }
 }
 

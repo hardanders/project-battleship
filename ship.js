@@ -3,6 +3,7 @@ class Ship {
         this.length = length;
         this.hits = 0;
         this.vertical = true;
+        this.sunk = false;
     }
     hit()
     {
