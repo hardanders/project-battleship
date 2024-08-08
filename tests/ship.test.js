@@ -1,4 +1,4 @@
-import Ship from "./ship";
+import Ship from "../src/ship";
 
 const myShip = new Ship;
 const myShip5 = new Ship(5);

@@ -1,5 +1,6 @@
 import Display from "./display.js";
-import Player from "./player.js";
+import Gameboard from "./gameboard.js";
+import { Player, Computer } from "./player.js";
 import './styles.css';
 
 let player1 = new Player;

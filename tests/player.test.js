@@ -1,4 +1,4 @@
-import { Player, Computer } from "./player.js";
+import { Player, Computer } from "../src/player.js";
 
 test("returning Player object", () => {
     expect(new Player).toBeTruthy();
