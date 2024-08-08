@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board-holder {
+    background-color: lightblue;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div[class^="cell"]{
+    height: 48px;
+    width: 48px;
+    border: dotted;
+    border-width: 1px;
+    border-color: black;
+}

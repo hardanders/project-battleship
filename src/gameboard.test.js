@@ -1,5 +1,5 @@
-import { Gameboard } from "./gameboard.js";
-import { Ship } from "./ship.js";
+import Gameboard from "./gameboard.js";
+import Ship from "./ship.js";
 
 let board1 = new Gameboard(10);
 
