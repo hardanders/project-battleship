@@ -17,4 +17,4 @@ class Computer extends Player {
     }
 }
 
-export { Player, Computer }; 
+export { Player, Computer };
